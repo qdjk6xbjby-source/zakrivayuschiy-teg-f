@@ -11,6 +11,316 @@
 */
 
 .page {
+  display: grid;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  color: var(--color);
+  font-family: var(--font-base), sans-serif;
+  font-variation-settings: "wght" var(--wght);
+  font-size: var(--font-size);
+  background-image: var(--cover);
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: var(--page-bg-color);
+  padding-block-start: 100px;
+}
+
+.header {
+  display: grid;
+  inline-size: 100%;
+}
+
+.welcome {
+  border: 2px solid var(--contour-color);
+  background-color: var(--page-bg-color);
+  max-inline-size: 703px;
+  margin-inline: auto;
+}
+
+.title__decor {
+  display: block;
+  font-family: var(--font-accent), fantasy;
+  font-size: var(--hero-title);
+  margin-block-start: clamp(122px, calc(0.00751 * 100vw + 119.18px), 130px);
+  margin-block-end: 20px;
+  text-align: center;
+}
+
+.hero__title {
+  display: grid;
+  max-inline-size: 695px;
+  inline-size: 100%;
+  font-size: var(--hero-subtitle);
+  text-align: center;
+  align-content: center;
+  font-family: var(--font-accent), fantasy;
+  text-transform: uppercase;
+  margin-block-end: clamp(122px, calc(0.00751 * 100vw + 119.18px), 130px);
+}
+
+.main {
+  display: grid;
+  margin-block: 100px;
+  gap: 50px;
+}
+
+.card {
+  display: grid;
+  max-inline-size: 696px;
+  background-color: var(--page-bg-color);
+  border: 2px solid var(--border-color);
+  margin-inline: auto;
+}
+
+.card__cover-image {
+  display: block;
+  inline-size: 100%;
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 1/1;
+}
+
+.photo-sepia {
+  filter: sepia(1);
+}
+.photo-bw {
+  filter: grayscale(1);
+}
+.photo-contrast {
+  filter: contrast(1.5);
+}
+.photo-blur {
+  filter: blur(3px);
+}
+.photo-bright {
+  filter: brightness(1.3);
+}
+.photo-saturate {
+  filter: saturate(2);
+}
+.photo-hue {
+  filter: hue-rotate(90deg) saturate(1.5);
+}
+
+.card__cover {
+  position: relative;
+}
+
+.card__title {
+  font-variation-settings: "wght" var(--card-title-wght);
+  padding: 4px 10px;
+  font-family: var(--font-base), sans-serif;
+  font-size: var(--font-size);
+  border-block-end: 2px solid var(--border-color);
+}
+
+.card__watermark {
+  position: absolute;
+  inset-block-start: 25px;
+  inset-inline-end: 25px;
+  font-family: var(--font-accent), fantasy;
+  text-shadow: -1px 0 var(--page-bg-color), 1px 0 var(--page-bg-color),
+    0 -1px var(--page-bg-color), 0 1px var(--page-bg-color);
+  font-size: 14px;
+  color: var(--color);
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+}
+
+.card__details {
+  display: grid;
+  font-family: var(--font-base), sans-serif;
+  border-block-start: 2px solid var(--border-color);
+  padding: 25px;
+  gap: 25px;
+}
+
+.card__paragraph {
+  font-size: 18px;
+  line-height: 1.167;
+}
+
+.card__icon-button {
+  display: flex;
+  background: transparent;
+  color: var(--color);
+  cursor: pointer;
+  padding: 0;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border-color: var(--border-color, #000);
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0px 0px var(--color);
+}
+
+.card__button {
+  display: flex;
+  gap: 11px;
+  justify-content: end;
+}
+
+.button {
+  box-sizing: border-box;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid var(--border-color);
+  background: var(--button-text-color);
+  transition: box-shadow 0.3s ease;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  block-size: 100%;
+  background-color: var(--button-fill-color);
+  transition: width 0.5s ease-in-out;
+}
+
+.button .button__text {
+  transition: color 0.5s ease-in-out;
+}
+
+.button:hover::before {
+  width: 100%;
+}
+
+.card__like-button {
+  inline-size: 130px;
+  min-block-size: 38px;
+}
+
+.button__text {
+  font-size: var(--button-size);
+  color: var(--button-text-color);
+  font-family: var(--font-accent), fantasy;
+  mix-blend-mode: difference;
+}
+
+.button__text--modal {
+  text-transform: uppercase;
+}
+
+.button:hover .button__text {
+  color: var(--button-text-color);
+}
+
+.button svg {
+  stroke: white;
+  mix-blend-mode: difference;
+}
+
+.button:hover svg {
+  color: var(--button-text-color);
+}
+
+.save {
+  display: flex;
+  justify-content: center;
+}
+
+.save__button {
+  min-block-size: 55px;
+  gap: 8px;
+  padding: 15px 20px;
+}
+
+.dialog[open] {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  max-inline-size: clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem);
+  min-inline-size: 341px;
+  padding-block: 30px;
+  padding-inline: clamp(30px, calc(43.52px - 0.939vw), 40px);
+  position: fixed;
+  background-color: var(--page-bg-color);
+  border: 2px solid var(--color);
+}
+
+.dialog::backdrop {
+  opacity: 0.75;
+  background: var(--color);
+}
+
+.dialog__title {
+  display: flex;
+  font-family: var(--font-accent), fantasy;
+  font-size: 14px;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+.dialog__container {
+  display: grid;
+  gap: 30px;
+}
+
+.dialog__button {
+  display: flex;
+  justify-content: center;
+  inline-size: 100%;
+  min-block-size: 38px;
+  padding: 0;
+}
+
+.dialog__message {
+  display: flex;
+  font-family: var(--font-accent), fantasy;
+  font-size: 14px;
+  line-height: 150%;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.dialog__message svg {
+  inline-size: 39px;
+  block-size: 39px;
+  min-inline-size: 39px;
+}
+
+@supports (
+  (text-stroke: 1px var(--page-bg-color)) or
+    (-webkit-text-stroke: 1px var(--page-bg-color))
+) {
+  .card__watermark {
+    -webkit-text-stroke: 1px var(--page-bg-color);
+    text-shadow: none;
+    text-stroke: 1px var(--page-bg-color);
+  }
+}
+
+@supports (mix-blend-mode: difference) {
+  .button .button__text {
+    transition: none;
+  }
+}
+
+@media (width <= 375px) {
+  .save__button {
+    flex-direction: column;
+  }
+
+  .button__icon {
+    inline-size: 28px;
+    block-size: 28px;
+  }
 }
