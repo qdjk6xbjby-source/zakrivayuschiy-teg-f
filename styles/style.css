@@ -194,9 +194,6 @@
   transition: width 0.5s ease-in-out;
 }
 
-.button .button__text {
-  transition: color 0.5s ease-in-out;
-}
 
 .button:hover::before {
   width: 100%;
@@ -218,9 +215,6 @@
   text-transform: uppercase;
 }
 
-.button:hover .button__text {
-  color: var(--button-text-color);
-}
 
 .button svg {
   stroke: white;
@@ -308,11 +302,6 @@
   }
 }
 
-@supports (mix-blend-mode: difference) {
-  .button .button__text {
-    transition: none;
-  }
-}
 
 @media (width <= 375px) {
   .save__button {
